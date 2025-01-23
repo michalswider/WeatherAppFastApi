@@ -31,6 +31,7 @@ async def add_user(
     validate_username_exist(create_user_request.username, user, db)
     validate_role(create_user_request.role, user)
     create_user(create_user_request, db)
+    return {"message": "User created successfully."}
 
 
 @router.get("/show", status_code=status.HTTP_200_OK)

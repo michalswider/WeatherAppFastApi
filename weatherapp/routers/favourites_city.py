@@ -26,6 +26,7 @@ async def add_favourite_city(
     verify_user(user)
     validate_favourite_city_name_exist(add_city_request.city, user, db)
     add_city(add_city_request, user, db)
+    return {"message": "City added successfully."}
 
 
 @router.get("/show", status_code=status.HTTP_200_OK)
