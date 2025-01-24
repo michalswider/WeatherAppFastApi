@@ -5,8 +5,12 @@ Application for managing users, their favorite cities, and displaying weather da
 ## **Features**
 - **User Management**: Add, update, and delete user profiles.
 - **Favorite Cities Management**: Add and manage users' favorite cities.
-- **Weather Information**: - Retrieve current weather data for any city. - View weather for a user's favorite cities.
-- **Cached Weather Data**: - Store previously fetched weather data in the database for faster access. - Remove old cached weather data from the database when no longer needed.
+- **Weather Information**:
+  - Retrieve current weather data for any city.
+  - View weather for a user's favorite cities.
+- **Cached Weather Data**:
+  - Store previously fetched weather data in the database for faster access.
+  - Remove old cached weather data from the database when no longer needed.
 - **REST API**: Fully documented API with Swagger UI for easy access and testing.
 
 ## **Technologies**
