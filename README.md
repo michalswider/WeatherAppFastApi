@@ -11,10 +11,14 @@ Application for managing users, their favorite cities, and displaying weather da
 - **Cached Weather Data**:
   - Store previously fetched weather data in the database for faster access.
   - Remove old cached weather data from the database when no longer needed.
+- **Error Handling**:
+  - Custom exception handlers for user-friendly error messages.
+  - Comprehensive logging of unexpected errors for debugging purposes.
 - **REST API**: Fully documented API with Swagger UI for easy access and testing.
 
 ## **Technologies**
 - **FastAPI**: Web framework for building APIs with Python.
+- **Error Handlers**: Built-in and custom FastAPI exception handlers for managing application errors gracefully.
 - **SQLAlchemy**: SQL toolkit and Object-Relational Mapping (ORM) library.
 - **PostgreSQL**: Relational database for storing user data and cities.
 - **Uvicorn**: ASGI server for running FastAPI applications.
