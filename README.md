@@ -27,12 +27,12 @@ Application for managing users, their favorite cities, and displaying weather da
 - **Pytest**: Framework for writing unit tests to ensure application reliability and correctness.
 - **Docker**: The application is containerized, making it easy to deploy and run in different environments.
 
-  ## **Installation**
+## **Installation**
 
-  ### **1. Clone the repository:**
-   ```bash
-   git clone https://github.com/michalswider/WeatherAppFastApi.git
-   ```
+### **1. Clone the repository:**
+  ```bash
+  git clone https://github.com/michalswider/WeatherAppFastApi.git
+  ```
 
 ## **Configuration**
 
