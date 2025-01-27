@@ -17,3 +17,7 @@ class EditUserRequest(BaseModel):
     username: Optional[str] = Field(None, min_length=1)
     password: Optional[str] = Field(None, min_length=6)
     role: Optional[str] = Field(None, min_length=1)
+
+class EditPasswordRequest(BaseModel):
+    old_password: str = Field(min_length=6)
+    new_password: str = Field(min_length=6)

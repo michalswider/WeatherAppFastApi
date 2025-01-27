@@ -7,8 +7,8 @@ from sqlalchemy.orm import Session
 from .database import Base, engine
 from .handlers import setup_exception_handler
 from .models import User
-from .routers import (administration_tools, auth, favourites_city, users,
-                      weather)
+from .routers import (administration_tools, auth, favourites_city, user_panel,
+                      users, weather)
 from .routers.auth import bcrypt_context, get_db
 
 db_dependency = Annotated[Session, Depends(get_db)]
@@ -46,4 +46,5 @@ app.include_router(users.router)
 app.include_router(administration_tools.router)
 app.include_router(weather.router)
 app.include_router(favourites_city.router)
+app.include_router(user_panel.router)
 app.include_router(auth.router)

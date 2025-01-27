@@ -9,7 +9,8 @@ from starlette import status
 from ..exceptions import (ExistException, InvalidException, NotFoundException,
                           PermissionException)
 from ..models import User, UserFavouriteCities, WeatherCache
-from ..routers.auth import get_db
+from ..routers.auth import bcrypt_context, get_db
+from ..schemas.users import EditPasswordRequest
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
@@ -102,3 +103,12 @@ def check_weather_cache(city: str, db: db_dependency):
     if weather_model:
         return weather_model.weather_data
     return None
+
+
+def validate_password_reset(
+    request: EditPasswordRequest, user_id: int, user: dict, db: db_dependency
+):
+    user_model = db.query(User).filter(User.id == user_id).first()
+    if not bcrypt_context.verify(request.old_password, user_model.password_hash):
+        raise InvalidException(detail="Error on password change", user=user["username"])
+    return user_model

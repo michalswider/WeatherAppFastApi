@@ -5,7 +5,8 @@ from sqlalchemy.orm import Session
 
 from ..models import User
 from ..routers.auth import bcrypt_context, get_db
-from ..schemas.users import CreateUserRequest, EditUserRequest
+from ..schemas.users import (CreateUserRequest, EditPasswordRequest,
+                             EditUserRequest)
 from ..services.validation_service import (validate_role,
                                            validate_username_exist)
 
@@ -44,4 +45,10 @@ def edit_user(
 
 def delete_user(user_model: User, db: db_dependency):
     db.delete(user_model)
+    db.commit()
+
+
+def edit_password(request: EditPasswordRequest, user: User, db: db_dependency):
+    user.password_hash = bcrypt_context.hash(request.new_password)
+    db.add(user)
     db.commit()
