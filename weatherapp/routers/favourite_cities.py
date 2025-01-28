@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, Path
 from sqlalchemy.orm import Session
 from starlette import status
 
-from ..response_models.city import map_favourites_cities_to_response
+from ..response_models.city import map_favourite_cities_to_response
 from ..routers.auth import get_current_user, get_db
 from ..schemas.city import AddCityRequest
 from ..services.city_service import add_city, delete_city, edit_city
@@ -33,7 +33,7 @@ async def add_favourite_city(
 async def show_favourite_cities(db: db_dependency, user: user_dependency):
     verify_user(user)
     city_models = validate_found_user_favourite_city(user, db)
-    return map_favourites_cities_to_response(city_models)
+    return map_favourite_cities_to_response(city_models)
 
 
 @router.put("/update/{city_id}", status_code=status.HTTP_204_NO_CONTENT)

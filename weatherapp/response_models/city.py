@@ -1,4 +1,4 @@
-def map_favourites_cities_to_response(cities):
+def map_favourite_cities_to_response(cities):
     results = []
     for city in cities:
         results.append(
