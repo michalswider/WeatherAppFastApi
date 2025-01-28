@@ -27,7 +27,7 @@ async def show_user_detail(user: user_dependency, db: db_dependency):
     return user_detail_to_response(user_model)
 
 
-@router.put("/reset-password", status_code=status.HTTP_204_NO_CONTENT)
+@router.put("/reset_password", status_code=status.HTTP_204_NO_CONTENT)
 async def reset_password(
     edit_password_request: EditPasswordRequest, user: user_dependency, db: db_dependency
 ):

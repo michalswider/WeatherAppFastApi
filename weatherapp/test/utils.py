@@ -3,7 +3,7 @@ from sqlalchemy import StaticPool, create_engine, text
 from sqlalchemy.orm import sessionmaker
 
 from ..database import Base
-from ..models import User
+from ..models import User, UserFavouriteCities
 from ..routers.auth import bcrypt_context
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./testdb.db"
@@ -63,4 +63,28 @@ def test_user2():
     yield test_user
     with engine.connect() as connection:
         connection.execute(text("DELETE FROM users"))
+        connection.commit()
+
+
+@pytest.fixture
+def test_city1():
+    test_city = UserFavouriteCities(user_id=1, city_name="Warszawa")
+    db = TestingSessionLocal()
+    db.add(test_city)
+    db.commit()
+    yield test_city
+    with engine.connect() as connection:
+        connection.execute(text("DELETE FROM user_favourite_cities"))
+        connection.commit()
+
+
+@pytest.fixture
+def test_city2():
+    test_city = UserFavouriteCities(user_id=1, city_name="Krakow")
+    db = TestingSessionLocal()
+    db.add(test_city)
+    db.commit()
+    yield test_city
+    with engine.connect() as connection:
+        connection.execute(text("DELETE FROM user_favourite_cities"))
         connection.commit()

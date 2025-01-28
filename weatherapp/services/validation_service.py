@@ -63,7 +63,7 @@ def validate_favourite_city_name_exist(city: str, user: dict, db: db_dependency)
     )
     if city_model:
         raise ExistException(
-            detail=f"Favourite city: {city} already exists", user=user["username"]
+            detail=f"Favourite city: {city} already exist.", user=user["username"]
         )
 
 

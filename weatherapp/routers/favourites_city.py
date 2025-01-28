@@ -13,7 +13,7 @@ from ..services.validation_service import (validate_favourite_city_exist,
                                            validate_found_user_favourite_city,
                                            verify_user)
 
-router = APIRouter(prefix="/favourites", tags=["favourites"])
+router = APIRouter(prefix="/favourite", tags=["favourite"])
 
 user_dependency = Annotated[dict, Depends(get_current_user)]
 db_dependency = Annotated[Session, Depends(get_db)]
@@ -30,7 +30,7 @@ async def add_favourite_city(
 
 
 @router.get("/show", status_code=status.HTTP_200_OK)
-async def show_favourites_cities(db: db_dependency, user: user_dependency):
+async def show_favourite_cities(db: db_dependency, user: user_dependency):
     verify_user(user)
     city_models = validate_found_user_favourite_city(user, db)
     return map_favourites_cities_to_response(city_models)
