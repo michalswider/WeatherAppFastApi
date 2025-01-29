@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 from .database import Base, engine
 from .handlers import setup_exception_handler
+from .middleware.response_middleware import ResponseMiddleware
 from .models import User
 from .routers import (administration_tools, auth, favourite_cities, user_panel,
                       users, weather)
@@ -42,6 +43,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(lifespan=lifespan)
 
 setup_exception_handler(app)
+app.add_middleware(ResponseMiddleware)
 app.include_router(users.router)
 app.include_router(administration_tools.router)
 app.include_router(weather.router)
