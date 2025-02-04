@@ -49,7 +49,7 @@ def fetch_weather_data_from_api(
     except requests.exceptions.ConnectionError:
         raise ConnectionException(detail="Connection error")
     except requests.exceptions.Timeout:
-        raise TimeoutException(detail="Request timed out")
+        raise TimeoutException(detail="Request timeout")
     except requests.exceptions.RequestException as req_err:
         raise RequestException(detail=f"Network error: {req_err}")
 
