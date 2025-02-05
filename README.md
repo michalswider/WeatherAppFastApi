@@ -56,5 +56,5 @@ pgAdmin login:
 - **Password**: `admin`
 
 ### **2. API Key Configuration:**
-To use the weather data feature, you need to obtain an API key from https://openweathermap.org/api. Add your API key to the `config/api_keys.py` file.
+To use the weather data feature, you need to obtain an API key from https://openweathermap.org/api. Add your API key to the `weatherapp/config/api_keys.py` file.
 
