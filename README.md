@@ -14,11 +14,15 @@ Application for managing users, their favorite cities, and displaying weather da
 - **Error Handling**:
   - Custom exception handlers for user-friendly error messages.
   - Comprehensive logging of unexpected errors for debugging purposes.
+- **Middleware**:
+  - Process Time Middleware: Measures the duration of request processing.
+  - Request ID Middleware: Assigns a unique identifier to each request for tracking and debugging.
 - **REST API**: Fully documented API with Swagger UI for easy access and testing.
 
 ## **Technologies**
 - **FastAPI**: Web framework for building APIs with Python.
 - **Error Handlers**: Built-in and custom FastAPI exception handlers for managing application errors gracefully.
+- **Middleware**: Custom middleware for processing request time and assigning unique request IDs.
 - **SQLAlchemy**: SQL toolkit and Object-Relational Mapping (ORM) library.
 - **PostgreSQL**: Relational database for storing user data and cities.
 - **Uvicorn**: ASGI server for running FastAPI applications.
@@ -50,3 +54,7 @@ The application will be available at the following ports:
 pgAdmin login:
 - **Email Address**: `admin@example.com`
 - **Password**: `admin`
+
+### **2. API Key Configuration:**
+To use the weather data feature, you need to obtain an API key from OpenWeatherMap. Add your API key to the `config/api_keys.py` file.
+
